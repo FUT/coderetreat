@@ -13,8 +13,10 @@ class Cell
 end
 
 class World
+  attr_reader :cells
+
   def initialize(text)
-    @cells = [Cell.new]
+    @cells = [Cell.new(false)]
   end
 end
 
