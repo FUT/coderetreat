@@ -1,7 +1,7 @@
 require 'rspec'
 
 class Cell
-  attr_reader :state
+  attr_accessor :state, :next_state
 
   def initialize(state)
     @state = state
