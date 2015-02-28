@@ -45,7 +45,7 @@ describe Cell do
 
 end
 
-descrive Universe do
+describe Universe do
   let(:width) { 3 }
   let(:height) { 3 }
 
