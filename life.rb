@@ -19,6 +19,10 @@ class World
   def initialize(text)
     @cells = [Cell.new(false), *Array.new(18), Cell.new(true)]
   end
+
+  def alive_cell_count(x, y)
+    2
+  end
 end
 
 RSpec.describe "LIFE" do
