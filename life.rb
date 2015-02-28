@@ -60,7 +60,12 @@ RSpec.describe "LIFE" do
     end
 
     it "last cell should be alive" do
-      expect(world.cells.first.state).to eq(true)
+      cells = world.cells
+      expect(cells[cells.size - 1].state).to eq(true)
+    end
+
+    it "should return correct World cells size" do
+      expect(world.cells.size).to eq(20)
     end
 
   end
