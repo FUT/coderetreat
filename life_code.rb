@@ -21,7 +21,7 @@ class Universe
     arr = []
     @width.times.each do |w|
       @heigth.times.each do |h|
-        arr << Cell.new(h, w, 1)
+        arr << Cell.new(h, w, rand(2))
       end
     end
     arr
