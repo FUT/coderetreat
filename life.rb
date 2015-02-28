@@ -52,13 +52,13 @@ describe Universe do
   it 'should assing coordinates to cells' do
     x = rand(0..width)
     y = rand(0..height)
-    cell = @universe.cells
+    cell = @universe.cells[x + x*y]
     cell.x.must_equal x
     cell.y.must_equal y
   end
 
   it 'should seed cells with some initial state' do
-    @universe.cells.all? { |c| c.must_be_kind_of(Numeric) }
+    @universe.cells.all? { |c| c.state.must_be_kind_of(Numeric) }
   end
 
   it 'should assign neighbors for cells' do
