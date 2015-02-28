@@ -41,5 +41,8 @@ RSpec.describe "LIFE" do
       expect(world).to be_an(Array)
     end
 
+    it "should contain cells" do
+      expect(world.cells.first).to be_an(Cell)
+    end
   end
 end
