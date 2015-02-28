@@ -1,5 +1,13 @@
 require 'rspec'
 
+class Cell
+  attr_reader :state
+
+  def initialize(state)
+    @state = state
+  end
+end
+
 RSpec.describe "LIFE" do
   describe Cell do
     context "alive" do
