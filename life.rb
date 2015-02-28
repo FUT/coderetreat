@@ -46,6 +46,7 @@ RSpec.describe "LIFE" do
 
   describe World do
     let(:world) { World.new("   **\n     \n*****\n*   **") }
+    let(:cell) { Cell.new(true)}
 
     it "should be Array" do
       expect(world).to be_an(World)
@@ -68,5 +69,8 @@ RSpec.describe "LIFE" do
       expect(world.cells.size).to eq(20)
     end
 
+    it "should return alive cells' count" do
+      expect(world.alive_cell_count(0,0)).to eq(2)
+    end
   end
 end
