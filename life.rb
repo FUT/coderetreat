@@ -3,8 +3,14 @@ require 'minitest/autorun'
 
 class Cell
   attr_reader :x, :y, :state
+  attr_accessor :new_state
+
   def initialize(x, y, state)
     @x, @y, @state = x, y, state
+  end
+
+  def live
+    @new_state = 0
   end
 end
 
