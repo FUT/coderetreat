@@ -12,6 +12,14 @@ class Cell
   end
 end
 
+class World
+  attr_reader :cells
+
+  def initialize(text)
+    @cells = [Cell.new(false)]
+  end
+end
+
 RSpec.describe "LIFE" do
   describe Cell do
     context "alive" do
