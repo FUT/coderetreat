@@ -30,6 +30,7 @@ RSpec.describe "LIFE" do
         cell.next_state = false
         cell.reborn!
         expect(cell.state).to eq(false)
+        expect(cell.next_state).to eq(nil)
       end
     end
   end
@@ -48,5 +49,7 @@ RSpec.describe "LIFE" do
     it "first cell should be dead" do
       expect(world.cells.first.state).to eq(false)
     end
+
+
   end
 end
