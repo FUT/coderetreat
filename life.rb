@@ -63,6 +63,10 @@ describe Universe do
   end
 
   it 'should have at least one live cell' do
+    @universe.cells.any? { |c| c.state == 0 }
+  end
+
+  it 'should have at least one live cell' do
     @universe.cells.any? { |c| c.state == 1 }
   end
 
