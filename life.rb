@@ -120,6 +120,40 @@ class TestLife < Minitest::Test
           NaturalSelection.evolution(cell, neighbors).must_equal false
         end
       end
+
+      describe "dead cell with 3 neighbors" do
+        it "comes alive" do
+          cell = Cell.new(1, 1, false)
+          neighbors = [
+            Cell.new(0, 0, false),
+            Cell.new(1, 0, false),
+            Cell.new(2, 0, true),
+            Cell.new(1, 0, false),
+            Cell.new(1, 2, true),
+            Cell.new(2, 0, false),
+            Cell.new(2, 1, false),
+            Cell.new(2, 2, true)
+          ]
+          NaturalSelection.evolution(cell, neighbors).must_equal true
+        end
+      end
+
+      describe "dead cell with 3 neighbors" do
+        it "comes alive" do
+          cell = Cell.new(1, 1, true)
+          neighbors = [
+            Cell.new(0, 0, false),
+            Cell.new(1, 0, false),
+            Cell.new(2, 0, true),
+            Cell.new(1, 0, false),
+            Cell.new(1, 2, true),
+            Cell.new(2, 0, false),
+            Cell.new(2, 1, false),
+            Cell.new(2, 2, false)
+          ]
+          NaturalSelection.evolution(cell, neighbors).must_equal true
+        end
+      end
     end
   end
 end
