@@ -38,11 +38,15 @@ RSpec.describe "LIFE" do
     let(:world) { World.new("   **\n     \n*****\n*   **") }
 
     it "should be Array" do
-      expect(world).to be_an(Array)
+      expect(world).to be_an(World)
     end
 
     it "should contain cells" do
       expect(world.cells.first).to be_an(Cell)
+    end
+
+    it "first cell should be dead" do
+      expect(world.cells.first.state).to eq(false)
     end
   end
 end
