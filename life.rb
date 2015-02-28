@@ -13,12 +13,22 @@ describe Cell do
   let(:y) { 3 }
   let(:state) { 1 }
 
-  it 'should be successfully initialized' do
-    c = Cell.new(x, y, state)
+  before do
+    @cell = Cell.new(x, y, state)
+  end
 
-    c.x.must_equal x
-    c.y.must_equal y
-    c.state.must_equal state
+  it 'should be successfully initialized' do
+    @cell = Cell.new(x, y, state)
+
+    @cell.x.must_equal x
+    @cell.y.must_equal y
+    @cell.state.must_equal state
+  end
+
+  it 'should switch states' do
+    @cell.new_state = 0
+    @cell.live
+    @cell.state.must_equal 0
   end
 
 end
