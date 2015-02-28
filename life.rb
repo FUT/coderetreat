@@ -58,7 +58,7 @@ describe Universe do
   end
 
   it 'should seed cells with some initial state' do
-    # @universe.cells.
+    @universe.cells.all? { |c| c.must_be_kind_of(Numeric) }
   end
 
   it 'should assign neighbors for cells' do
