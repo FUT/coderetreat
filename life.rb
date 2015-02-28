@@ -50,8 +50,8 @@ describe Universe do
   end
 
   it 'should assing coordinates to cells' do
-    x = rand(0..width)
-    y = rand(0..height)
+    x = rand(0..width-1)
+    y = rand(0..height-1)
     cell = @universe.cells[x + x*y]
     cell.x.must_equal x
     cell.y.must_equal y

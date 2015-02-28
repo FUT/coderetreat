@@ -13,10 +13,19 @@ end
 
 class Universe
   def initialize(w, h)
+    @width = w
+    @heigth = h
   end
 
   def cells
-    Array.new(9,Cell.new(0,0,0))
+    arr = []
+    @width.times.each do |w|
+      @heigth.times.each do |h|
+        arr << Cell.new(w,h,0)
+      end
+    end
+    puts arr.inspect
+    arr
   end
 end
 
