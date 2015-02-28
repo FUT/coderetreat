@@ -9,6 +9,7 @@ class Cell
 
   def reborn!
     @state = @next_state
+    @next_state = nil
   end
 end
 
