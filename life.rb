@@ -1,5 +1,25 @@
 require "minitest/autorun"
 
+class Cell
+  ALIVE = true
+  DEAD = false
+
+  attr_reader :x, :y, :state
+
+  def initialize(x, y, state)
+    @x, @y = x, y
+    @state = state
+  end
+
+  def alive?
+    !!state
+  end
+
+  def dead?
+    !alive?
+  end
+end
+
 class TestLife < Minitest::Test
   describe 'dead cell' do
     def setup
