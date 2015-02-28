@@ -1,5 +1,11 @@
 require "minitest/autorun"
 
+class NaturalSelection
+  def self.evolution(cell, neighbours)
+
+  end
+end
+
 class Cell
   ALIVE = true
   DEAD = false
