@@ -74,9 +74,37 @@ class TestLife < Minitest::Test
     end
 
     describe "#evolution" do
-      context "cell with neighbors less than 2" do
+      describe "alive cell with neighbors less than 2" do
         it "dies" do
-          NaturalSelection.evolution(cell, naighbors).must_equal true
+          cell = Cell.new(1,1, true)
+          neighbors = [
+            Cell.new(0,0, false),
+            Cell.new(1,0, false),
+            Cell.new(2,0, false),
+            Cell.new(0,1, false),
+            Cell.new(1,2, true),
+            Cell.new(2,0, false),
+            Cell.new(2,1, false),
+            Cell.new(2,2, false)
+          ]
+          NaturalSelection.evolution(cell, neighbors).must_equal false
+        end
+      end
+
+      describe "alive cell with more than 3 naighbors" do
+        it "dies" do
+          cell = Cell.new(1,1, true)
+          neighbors = [
+            Cell.new(0,0, true),
+            Cell.new(1,0, true),
+            Cell.new(2,0, true),
+            Cell.new(0,1, false),
+            Cell.new(1,2, true),
+            Cell.new(2,0, false),
+            Cell.new(2,1, false),
+            Cell.new(2,2, false)
+          ]
+          NaturalSelection.evolution(cell, neighbors).must_equal false
         end
       end
     end
