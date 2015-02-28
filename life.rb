@@ -42,7 +42,27 @@ describe Universe do
   end
 
   it 'should create array of cells' do
-    @universe.cells.all? { |c| c.must_be_instance_of(c) }
+    @universe.cells.all? { |c| c.must_be_instance_of(Cell) }
+  end
+
+  it 'should create proper number of cells' do
+    @universe.cells.size.must_equal width * height
+  end
+
+  it 'should assing coordinates to cells' do
+    x = rand(0..width)
+    y = rand(0..height)
+    cell = @universe.cells
+    cell.x.must_equal x
+    cell.y.must_equal y
+  end
+
+  it 'should seed cells with some initial state' do
+    # @universe.cells.
+  end
+
+  it 'should assign neighbors for cells' do
+
   end
 
 end
