@@ -12,6 +12,12 @@ class Cell
   end
 end
 
+class World
+  def initialize(text)
+    @cells = [Cell.new]
+  end
+end
+
 RSpec.describe "LIFE" do
   describe Cell do
     context "alive" do
