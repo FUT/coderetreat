@@ -1,5 +1,6 @@
 require 'minitest/spec'
 require 'minitest/autorun'
+require 'pry'
 require_relative 'life_code.rb'
 
 describe Cell do
@@ -66,7 +67,6 @@ describe Universe do
   end
 
   it 'should assign neighbors for cells' do
-
   end
 
 end
