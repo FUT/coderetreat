@@ -2,7 +2,14 @@ require "minitest/autorun"
 
 class NaturalSelection
   def self.evolution(cell, neighbours)
-
+    count = neighbours.select(&:alive?).count
+    if count == 2
+      cell.alive?
+    elsif count == 3
+      true
+    else
+      false
+    end
   end
 end
 
