@@ -10,7 +10,7 @@ class Cell
   end
 
   def live
-    @new_state = 0
+    @state = 0
   end
 end
 
