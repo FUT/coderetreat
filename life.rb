@@ -59,7 +59,7 @@ class TestLife < Minitest::Test
 
     describe '#y' do
       it 'should return y coordinate' do
-        @cell.x.must_equal 2
+        @cell.y.must_equal 2
       end
     end
   end
