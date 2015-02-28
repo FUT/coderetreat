@@ -76,5 +76,16 @@ RSpec.describe "LIFE" do
     it "should return alive cells' count" do
       expect(world.alive_cell_count(0,0)).to eq(2)
     end
+
+    it "should return correct alive cells' count" do
+      expect(world.alive_cell_count(0,1)).to eq(3)
+    end
+
+
+    it "should change next state to proper value" do
+      world.evalutionate!
+      expect(world.cells[1].state).to eq(true)
+    end
+
   end
 end
