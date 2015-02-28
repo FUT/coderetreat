@@ -27,7 +27,15 @@ RSpec.describe "LIFE" do
         cell.reborn!
         expect(cell.state).to eq(false)
       end
-
     end
+  end
+
+  describe World do
+    let(:world) { World.new("   **\n     \n*****\n*   **") }
+
+    it "should be Array" do
+      expect(world).to be_an(Array)
+    end
+
   end
 end
