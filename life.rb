@@ -58,6 +58,9 @@ RSpec.describe "LIFE" do
       expect(world.cells.first.state).to eq(false)
     end
 
+    it "last cell should be alive" do
+      expect(world.cells.first.state).to eq(false)
+    end
 
   end
 end
