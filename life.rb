@@ -31,10 +31,30 @@ describe Cell do
     @cell.state.must_equal state
   end
 
-  it 'should switch states' do
+  it 'should switch state 0 to 1' do
     @cell.new_state = 0
     @cell.live
     @cell.state.must_equal 0
+  end
+
+  it 'should switch state 1 to 0' do
+    @cell.new_state = 1
+    @cell.live
+    @cell.state.must_equal 1
+  end
+
+end
+
+descrive Universe do
+  let(:width) { 3 }
+  let(:height) { 3 }
+
+  before do
+    @universe = Universe.new(width, height)
+  end
+
+  it 'should create array of cells' do
+    @universe.cells.all? { |c| c.must_be_instance_of(c) }
   end
 
 end
