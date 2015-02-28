@@ -14,8 +14,9 @@ end
 class Universe
   def initialize(w, h)
   end
+
   def cells
-    [Cell.new(0,0,0)]
+    Array.new(9,Cell.new(0,0,0))
   end
 end
 
