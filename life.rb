@@ -1,6 +1,13 @@
 require 'minitest/spec'
 require 'minitest/autorun'
 
+class Cell
+  attr_reader :x, :y, :state
+  def initialize(x, y, state)
+    @x, @y, @state = x, y, state
+  end
+end
+
 describe Cell do
   let(:x) { 3 }
   let(:y) { 3 }
