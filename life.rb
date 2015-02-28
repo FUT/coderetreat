@@ -25,8 +25,8 @@ class TestLife < Minitest::Test
     end
 
     describe '#y' do
-      it 'should return x coordinate' do
-        @cell.x.must_equal 1
+      it 'should return y coordinate' do
+        @cell.x.must_equal 2
       end
     end
   end
