@@ -68,4 +68,17 @@ class TestLife < Minitest::Test
       end
     end
   end
+
+  describe 'NaturalSelection' do
+    def setup
+    end
+
+    describe "#evolution" do
+      context "cell with neighbors less than 2" do
+        it "dies" do
+          NaturalSelection.evolution(cell, naighbors).must_equal true
+        end
+      end
+    end
+  end
 end
