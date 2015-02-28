@@ -1,91 +1,68 @@
-require 'rspec'
+require 'minitest/spec'
+require 'minitest/autorun'
+require_relative 'life_code.rb'
 
-class Cell
-  attr_accessor :state, :next_state
+describe Cell do
+  let(:x) { 3 }
+  let(:y) { 3 }
+  let(:state) { 1 }
 
-  def initialize(state)
-    @state = state
+  before do
+    @cell = Cell.new(x, y, state)
   end
 
-  def reborn!
-    @state = @next_state
-    @next_state = nil
+  it 'should be successfully initialized' do
+    @cell = Cell.new(x, y, state)
+
+    @cell.x.must_equal x
+    @cell.y.must_equal y
+    @cell.state.must_equal state
   end
+
+  it 'should switch state 0 to 1' do
+    @cell.new_state = 0
+    @cell.live
+    @cell.state.must_equal 0
+  end
+
+  it 'should switch state 1 to 0' do
+    @cell.new_state = 1
+    @cell.live
+    @cell.state.must_equal 1
+  end
+
 end
 
-class World
-  attr_reader :cells
+describe Universe do
+  let(:width) { 3 }
+  let(:height) { 3 }
 
-  def initialize(text)
-    @cells = [Cell.new(false), *Array.new(18), Cell.new(true)]
+  before do
+    @universe = Universe.new(width, height)
   end
 
-  def alive_cell_count(x, y)
-    2
-  end
-end
-
-RSpec.describe "LIFE" do
-  describe Cell do
-    context "alive" do
-      let(:cell) { Cell.new(true) }
-
-      it "should have #state" do
-        expect(cell.state).to eq(true)
-      end
-
-      it "should have #next_state" do
-        cell.next_state = false
-        expect(cell.next_state).to eq(false)
-      end
-
-      it "should have #reborn!" do
-        cell.next_state = false
-        cell.reborn!
-        expect(cell.state).to eq(false)
-        expect(cell.next_state).to eq(nil)
-      end
-    end
+  it 'should create array of cells' do
+    @universe.cells.all? { |c| c.must_be_instance_of(Cell) }
   end
 
-  describe World do
-    let(:world) { World.new("   **\n     \n*****\n*   **") }
-    let(:cell) { Cell.new(true)}
+  it 'should create proper number of cells' do
+    @universe.cells.size.must_equal width * height
+  end
 
-    it "should be Array" do
-      expect(world).to be_an(World)
-    end
+  it 'should assing coordinates to cells' do
+    x = rand(0..width)
+    y = rand(0..height)
+    cell = @universe.cells
+    cell.x.must_equal x
+    cell.y.must_equal y
+  end
 
-    it "should contain cells" do
-      expect(world.cells.first).to be_an(Cell)
-    end
+  it 'should seed cells with some initial state' do
+    @universe.cells.all? { |c| c.must_be_kind_of(Numeric) }
+  end
 
-    it "first cell should be dead" do
-      expect(world.cells.first.state).to eq(false)
-    end
-
-    it "last cell should be alive" do
-      cells = world.cells
-      expect(cells[cells.size - 1].state).to eq(true)
-    end
-
-    it "should return correct World cells size" do
-      expect(world.cells.size).to eq(20)
-    end
-
-    it "should return alive cells' count" do
-      expect(world.alive_cell_count(0,0)).to eq(2)
-    end
-
-    it "should return correct alive cells' count" do
-      expect(world.alive_cell_count(0,1)).to eq(3)
-    end
-
-
-    it "should change next state to proper value" do
-      world.evalutionate!
-      expect(world.cells[1].state).to eq(true)
-    end
+  it 'should assign neighbors for cells' do
 
   end
+
 end
