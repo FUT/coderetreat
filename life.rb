@@ -9,6 +9,11 @@ RSpec.describe "LIFE" do
         expect(cell.state).to eq(true)
       end
 
+      it "should have #next_state" do
+        cell.next_state = false
+        expect(cell.next_state).to eq(false)
+      end
+
 
     end
   end
