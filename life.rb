@@ -17,7 +17,7 @@ class World
   attr_reader :cells
 
   def initialize(text)
-    @cells = [Cell.new(false)]
+    @cells = [Cell.new(false), Cell.new(true)]
   end
 end
 
