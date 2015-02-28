@@ -21,10 +21,9 @@ class Universe
     arr = []
     @width.times.each do |w|
       @heigth.times.each do |h|
-        arr << Cell.new(w,h,0)
+        arr << Cell.new(h, w, 1)
       end
     end
-    puts arr.inspect
     arr
   end
 end
