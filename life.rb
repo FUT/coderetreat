@@ -6,6 +6,10 @@ class Cell
   def initialize(state)
     @state = state
   end
+
+  def reborn!
+    @state = @next_state
+  end
 end
 
 RSpec.describe "LIFE" do
