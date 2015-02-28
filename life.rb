@@ -61,6 +61,10 @@ describe Universe do
     @universe.cells.all? { |c| c.state.must_be_kind_of(Numeric) }
   end
 
+  it 'should have at least one live cell' do
+    @universe.cells.any? { |c| c.state == 1 }
+  end
+
   it 'should assign neighbors for cells' do
 
   end
